@@ -1,1 +1,12 @@
 rootProject.name = 'ottsharing'
+
+include('legacy')
+include('server')
+include('common')
+include(
+        'user-api',
+        'user-api:user-domain',
+        'user-api:user-application',
+        'user-api:user-presentation',
+        'user-api:user-infrastructure'
+)
