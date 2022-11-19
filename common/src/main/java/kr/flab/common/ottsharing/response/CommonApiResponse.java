@@ -6,7 +6,7 @@ public class CommonApiResponse<T> {
 
     private final boolean success;
     private final T body;
-    private Error error;
+    private final Error error;
 
     public CommonApiResponse(boolean success, T body, Error error) {
         this.success = success;
@@ -26,25 +26,25 @@ public class CommonApiResponse<T> {
         return error;
     }
 
-    public static <T> CommonApiResponse success(T data) {
+    public static <T> CommonApiResponse<T> success(T data) {
         return new CommonApiResponse<>(true,data,null);
     }
 
-    public static CommonApiResponse fail(Error error) {
+    public static CommonApiResponse<Error> fail(Error error) {
         return new CommonApiResponse<>(false, null, error);
     }
 
-    public static CommonApiResponse fail(ErrorCode errorCode) {
+    public static CommonApiResponse<Error> fail(ErrorCode errorCode) {
         return new CommonApiResponse<>(false, null, new Error(errorCode.name(), errorCode.getMessage()));
     }
 
-    public static CommonApiResponse fail(String code, String message) {
+    public static CommonApiResponse<Error> fail(String code, String message) {
         return new CommonApiResponse<>(false, null, new Error(code,message));
     }
 
-    static class Error {
-        private String code;
-        private String message;
+    public static final class Error {
+        private final String code;
+        private final String message;
 
         Error(String code, String message) {
             this.code = code;
@@ -62,3 +62,4 @@ public class CommonApiResponse<T> {
 
 
 }
+
