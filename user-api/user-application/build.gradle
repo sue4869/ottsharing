@@ -9,7 +9,7 @@ repositories {
 }
 
 dependencies {
-	implementation project(":common")
 	implementation project(path: ':user-api:user-domain', configuration: 'default')
 	implementation 'org.springframework:spring-tx:5.3.13'
 }
+
