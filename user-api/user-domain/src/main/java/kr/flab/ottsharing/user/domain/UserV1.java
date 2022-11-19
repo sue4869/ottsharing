@@ -1,5 +1,8 @@
 package kr.flab.ottsharing.user.domain;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import javax.persistence.*;
 import java.time.Instant;
 
@@ -13,7 +16,9 @@ public class UserV1 {
     private Email email;
     @Embedded
     private Password password;
+    @CreationTimestamp
     private Instant createdAt;
+    @UpdateTimestamp
     private Instant updatedAt;
 
     public Email getEmail() {
@@ -38,12 +43,6 @@ public class UserV1 {
         }
         this.password = new Password(password);
         this.email = new Email(email);
-        if(createdAt == null) {
-            this.createdAt = Instant.now();
-        } else {
-            this.createdAt = createdAt;
-        }
-        this.updatedAt = Instant.now();
     }
 
     public Long getId() {
@@ -58,3 +57,4 @@ public class UserV1 {
         return updatedAt;
     }
 }
+
