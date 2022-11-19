@@ -17,3 +17,4 @@ public class HandlerCollection {
         return CommonApiResponse.fail(exception.getErrorCode().name(),exception.getMessage());
     }
 }
+

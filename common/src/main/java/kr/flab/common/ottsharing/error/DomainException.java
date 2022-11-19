@@ -18,3 +18,4 @@ public class DomainException extends RuntimeException{
         return errorCode;
     }
 }
+

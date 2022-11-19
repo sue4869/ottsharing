@@ -7,3 +7,4 @@ public interface UserV1Repository {
 
     boolean existsByEmail(String email);
 }
+

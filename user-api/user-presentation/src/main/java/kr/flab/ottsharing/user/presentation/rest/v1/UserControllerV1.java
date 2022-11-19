@@ -22,3 +22,4 @@ public class UserControllerV1 {
           userCreateProcessor.register(request.toCommand());
     }
 }
+

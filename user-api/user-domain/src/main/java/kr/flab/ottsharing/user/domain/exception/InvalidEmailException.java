@@ -13,3 +13,5 @@ public class InvalidEmailException extends DomainException {
         super(message, ErrorCode.INVALID_EMAIL);
     }
 }
+
+

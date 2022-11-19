@@ -13,3 +13,5 @@ public class WeakPasswordException extends DomainException {
         super(message, ErrorCode.WEAK_PASSWORD);
     }
 }
+
+

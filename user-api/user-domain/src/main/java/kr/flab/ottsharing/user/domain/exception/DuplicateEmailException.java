@@ -13,3 +13,5 @@ public class DuplicateEmailException extends DomainException {
         super(message, ErrorCode.DUPLICATED_EMAIL);
     }
 }
+
+

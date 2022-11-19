@@ -13,3 +13,4 @@ public class UserApplicationServiceConfiguration {
         return new UserCreateProcessor(userV1Repository);
     }
 }
+
