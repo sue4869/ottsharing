@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
 @Order(Ordered.HIGHEST_PRECEDENCE)
-public class userExceptionHandler {
+public class UserExceptionHandler {
 
     @ExceptionHandler(DuplicateEmailException.class)
     public CommonApiResponse<Object> DuplicateEmailHandler(DuplicateEmailException exception) {
