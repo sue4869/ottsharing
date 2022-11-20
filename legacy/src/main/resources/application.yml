@@ -8,7 +8,7 @@ spring:
     password: 4869
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: none
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
   mvc:

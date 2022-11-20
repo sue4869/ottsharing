@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @Configuration
-@EnableJpaRepositories(basePackages = "kr.flab.ottsharing.user.infrastructure.config.repository.memory")
+@EnableJpaRepositories(basePackages = "kr.flab.ottsharing.user.infrastructure.config.repository.jpa")
 @EntityScan(basePackages = "kr.flab.ottsharing.user.domain")
 public class UserRepositoryConfig {
 
