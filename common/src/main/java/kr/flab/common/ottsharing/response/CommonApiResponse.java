@@ -30,15 +30,15 @@ public class CommonApiResponse<T> {
         return new CommonApiResponse<>(true,data,null);
     }
 
-    public static CommonApiResponse<Error> fail(Error error) {
+    public static CommonApiResponse<Object> fail(Error error) {
         return new CommonApiResponse<>(false, null, error);
     }
 
-    public static CommonApiResponse<Error> fail(ErrorCode errorCode) {
+    public static CommonApiResponse<Object> fail(ErrorCode errorCode) {
         return new CommonApiResponse<>(false, null, new Error(errorCode.name(), errorCode.getMessage()));
     }
 
-    public static CommonApiResponse<Error> fail(String code, String message) {
+    public static CommonApiResponse<Object> fail(String code, String message) {
         return new CommonApiResponse<>(false, null, new Error(code,message));
     }
 
