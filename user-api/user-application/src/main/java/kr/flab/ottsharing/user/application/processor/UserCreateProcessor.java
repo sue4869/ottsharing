@@ -19,7 +19,7 @@ public class UserCreateProcessor {
     }
 
     @Transactional
-    public void execute(Command command) {
+    public String execute(Command command) {
 
         if (userV1Repository.existsByEmail(command.email)) {
             throw new DuplicateEmailException();
@@ -41,6 +41,8 @@ public class UserCreateProcessor {
 
                )
        );
+
+       return command.email;
     }
 
     public static class Command {
