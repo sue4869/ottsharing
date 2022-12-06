@@ -19,7 +19,7 @@ public class UserControllerV1 {
 
     @PostMapping
     public void createUser(@RequestBody UserCreateRequest request) {
-          userCreateProcessor.register(request.toCommand());
+          userCreateProcessor.execute(request.toCommand());
     }
 }
 

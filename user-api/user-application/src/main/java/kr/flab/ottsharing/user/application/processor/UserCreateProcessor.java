@@ -1,6 +1,8 @@
 package kr.flab.ottsharing.user.application.processor;
 
+import kr.flab.common.ottsharing.domain.EventPublisher;
 import kr.flab.ottsharing.user.domain.UserV1;
+import kr.flab.ottsharing.user.domain.event.UserRegistered;
 import kr.flab.ottsharing.user.domain.exception.DuplicateEmailException;
 import kr.flab.ottsharing.user.domain.repository.UserV1Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -9,12 +11,15 @@ public class UserCreateProcessor {
 
     private final UserV1Repository userV1Repository;
 
-    public UserCreateProcessor(UserV1Repository userV1Repository) {
+    private final EventPublisher eventPublisher;
+
+    public UserCreateProcessor(UserV1Repository userV1Repository, EventPublisher eventPublisher) {
         this.userV1Repository = userV1Repository;
+        this.eventPublisher = eventPublisher;
     }
 
     @Transactional
-    public void register(Command command) {
+    public void execute(Command command) {
 
         if (userV1Repository.existsByEmail(command.email)) {
             throw new DuplicateEmailException();
@@ -28,7 +33,14 @@ public class UserCreateProcessor {
                 null
         );
 
-        userV1Repository.save(newUserV1);
+       userV1Repository.save(newUserV1);
+       eventPublisher.publish(
+               new UserRegistered(
+                       newUserV1.getId(),
+                       newUserV1.getEmail().getEmail()
+
+               )
+       );
     }
 
     public static class Command {

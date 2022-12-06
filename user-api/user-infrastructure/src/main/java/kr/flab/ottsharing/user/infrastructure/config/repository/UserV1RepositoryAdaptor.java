@@ -12,7 +12,6 @@ public class UserV1RepositoryAdaptor implements UserV1Repository {
         this.userV1JpaRepository = userV1JpaRepository;
     }
 
-
     @Override
     public UserV1 save(UserV1 user) {
         return userV1JpaRepository.save(user);
@@ -23,4 +22,5 @@ public class UserV1RepositoryAdaptor implements UserV1Repository {
         return userV1JpaRepository.existsByEmailEmail(email);
     }
 }
+
 
