@@ -14,7 +14,6 @@ public class UserV1InMemoryRepository {
         return memory.put(1L, user);
     }
 
-    //1108
     public boolean existsByEmail(String email) {
         if(Optional.ofNullable(memory.get(email)) == null) return false;
         return true;
