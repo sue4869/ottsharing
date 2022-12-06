@@ -22,6 +22,7 @@ dependencies {
 	implementation project(path: ':legacy', configuration: 'default')
 	implementation project(path: ':common', configuration: 'default')
 	implementation project(path: ':user-api:user-infrastructure', configuration: 'default')
+	implementation project(path: ':notification-api:notification-infrastructure', configuration: 'default')
 
 	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
 	testRuntimeOnly 'com.h2database:h2'

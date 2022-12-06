@@ -10,4 +10,12 @@ include(
         'user-api:user-presentation',
         'user-api:user-infrastructure'
 )
+include(
+        'notification-api',
+        'notification-api:notification-domain',
+        'notification-api:notification-application',
+        'notification-api:notification-presentation',
+        'notification-api:notification-infrastructure'
+)
+
 
