@@ -1,8 +1,10 @@
 package kr.flab.ottsharing.user.domain.repository;
 
-import kr.flab.ottsharing.user.domain.EmailToken;
+import kr.flab.ottsharing.user.domain.EmailValiedCheckToken;
 
 public interface EmailTokenRepository {
 
-    EmailToken save(EmailToken emailToken);
+    EmailValiedCheckToken save(EmailValiedCheckToken emailToken);
 }
+
+

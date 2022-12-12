@@ -1,7 +1,8 @@
 package kr.flab.ottsharing.user.application.processor;
 
 import kr.flab.common.ottsharing.domain.EventPublisher;
-import kr.flab.ottsharing.user.domain.EmailToken;
+import kr.flab.ottsharing.user.domain.EmailValiedCheckToken;
+import kr.flab.ottsharing.user.domain.TokenGenerator;
 import kr.flab.ottsharing.user.domain.exception.EmailTokenException;
 import kr.flab.ottsharing.user.domain.repository.EmailTokenRepository;
 
@@ -13,19 +14,22 @@ public class EmailTokenProcessor {
 
     private final EmailTokenRepository emailTokenRepository;
     private final EventPublisher eventPublisher;
+    private TokenGenerator tokenGenerator;
     private static final Logger log = LoggerFactory.getLogger(EmailTokenProcessor.class);
 
-    public EmailTokenProcessor(EmailTokenRepository emailTokenRepository, EventPublisher eventPublisher) {
+    public EmailTokenProcessor(EmailTokenRepository emailTokenRepository, EventPublisher eventPublisher, TokenGenerator tokenGenerator) {
         this.emailTokenRepository = emailTokenRepository;
         this.eventPublisher = eventPublisher;
+        this.tokenGenerator = tokenGenerator;
     }
 
     @Transactional
     public void execute(String email) {
         try {
-            EmailToken emailToken = new EmailToken(
+            EmailValiedCheckToken emailToken = new EmailValiedCheckToken(
                     null,
-                    email
+                    email,
+                    tokenGenerator.generate()
             );
             emailTokenRepository.save(emailToken);
             emailToken.occurredEvents().forEach(eventPublisher::publish);
@@ -36,3 +40,5 @@ public class EmailTokenProcessor {
         }
     }
 }
+
+

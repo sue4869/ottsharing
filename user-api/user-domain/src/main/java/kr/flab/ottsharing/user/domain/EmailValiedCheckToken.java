@@ -7,10 +7,11 @@ import org.hibernate.annotations.CreationTimestamp;
 import javax.persistence.*;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
-import java.util.UUID;
 
 @Entity
-public class EmailToken extends AggregateRoot {
+@Table(name ="emailToken")
+public class EmailValiedCheckToken extends AggregateRoot {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,25 +23,25 @@ public class EmailToken extends AggregateRoot {
     private Instant createdAt;
 
     @Transient
-    private static final Long MAX_EXPIRE_TIME = 5L;
+    private static final Long MAX_EXPIRE_MINUTES_TIME = 5L;
 
-    protected EmailToken() {
+    protected EmailValiedCheckToken() {
 
     }
 
-    public EmailToken(Long id, String email) {
+    public EmailValiedCheckToken(Long id, String email, String token) {
         if(id == null) {
             this.id = 0L;
         } else {
             this.id = id;
         }
         this.email = email;
-        generateEmailCheckToken();
+        this.emailCheckToken = token;
+        generateEmailCheckTokenEvent();
     }
 
-    protected void generateEmailCheckToken() {
-        this.emailCheckToken = UUID.randomUUID().toString();
-        this.expireDate = Instant.now().plus(MAX_EXPIRE_TIME, ChronoUnit.MINUTES);
+    private void generateEmailCheckTokenEvent() {
+        this.expireDate = Instant.now().plus(MAX_EXPIRE_MINUTES_TIME, ChronoUnit.MINUTES);
         raise(
                 new EmailTokenGenerated(
                         this.id,
@@ -51,3 +52,5 @@ public class EmailToken extends AggregateRoot {
         );
     }
 }
+
+
