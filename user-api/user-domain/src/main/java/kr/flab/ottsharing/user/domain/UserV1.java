@@ -2,6 +2,7 @@ package kr.flab.ottsharing.user.domain;
 
 import kr.flab.common.ottsharing.domain.AggregateRoot;
 import kr.flab.ottsharing.user.domain.event.UserEmailVerified;
+import kr.flab.ottsharing.user.domain.exception.ValidEmailException;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -45,7 +46,12 @@ public class UserV1 extends AggregateRoot {
         this.email = new Email(email);
     }
 
-    public void verifyEmail() {
+    private void verifyEmail() {
+
+        if(email.isVerified()) {
+            throw new ValidEmailException();
+        }
+
         this.email.verify();
         raise(
                 new UserEmailVerified(
