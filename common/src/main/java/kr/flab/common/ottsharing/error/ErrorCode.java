@@ -6,6 +6,7 @@ public enum ErrorCode {
     WEAK_PASSWORD(400,"취약한 비밀번호입니다."),
     INVALID_EMAIL(400,"유효하지 않은 이메일입니다."),
     EMAIL_TOKEN_ERROR(400,"토큰생성이 안되었습니다."),
+    VALID_EMAIL(400,"이미 인증된 이메일입니다."),
     SYSTEM_ERROR(500,"알수 없는 오류가 발생했습니다. 잠시 후 다시 시도해주세요");
 
     private final int status;
