@@ -1,13 +1,18 @@
 package kr.flab.ottsharing.user.presentation.rest.v1.response;
 
-public class UserRegisterResponse {
-    String email;
+import kr.flab.ottsharing.user.application.processor.response.EmailDTO;
 
-    public UserRegisterResponse(String email) {
+public class UserRegisterResponse {
+
+    EmailDTO email;
+
+    public UserRegisterResponse(EmailDTO email) {
         this.email = email;
     }
 
-    public String getEmail() {
+    public EmailDTO getEmail() {
         return email;
     }
 }
+
+

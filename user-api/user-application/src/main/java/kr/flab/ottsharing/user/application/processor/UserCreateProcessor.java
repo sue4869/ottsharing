@@ -1,6 +1,7 @@
 package kr.flab.ottsharing.user.application.processor;
 
 import kr.flab.common.ottsharing.domain.EventPublisher;
+import kr.flab.ottsharing.user.application.processor.response.EmailDTO;
 import kr.flab.ottsharing.user.domain.UserV1;
 import kr.flab.ottsharing.user.domain.event.UserRegistered;
 import kr.flab.ottsharing.user.domain.exception.DuplicateEmailException;
@@ -19,7 +20,7 @@ public class UserCreateProcessor {
     }
 
     @Transactional
-    public String execute(Command command) {
+    public EmailDTO execute(Command command) {
 
         if (userV1Repository.existsByEmail(command.email)) {
             throw new DuplicateEmailException();
@@ -38,11 +39,10 @@ public class UserCreateProcessor {
                new UserRegistered(
                        newUserV1.getId(),
                        newUserV1.getEmail().getEmail()
-
                )
        );
 
-       return command.email;
+       return new EmailDTO(command.email);
     }
 
     public static class Command {
@@ -56,4 +56,5 @@ public class UserCreateProcessor {
         }
     }
 }
+
 
