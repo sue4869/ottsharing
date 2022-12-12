@@ -1,8 +1,8 @@
-package kr.flab.ottsharing.user.infrastructure.config.repository;
+package kr.flab.ottsharing.user.infrastructure.repository;
 
 import kr.flab.ottsharing.user.domain.UserV1;
 import kr.flab.ottsharing.user.domain.repository.UserV1Repository;
-import kr.flab.ottsharing.user.infrastructure.config.repository.jpa.UserV1JpaRepository;
+import kr.flab.ottsharing.user.infrastructure.repository.jpa.UserV1JpaRepository;
 
 public class UserV1RepositoryAdaptor implements UserV1Repository {
 

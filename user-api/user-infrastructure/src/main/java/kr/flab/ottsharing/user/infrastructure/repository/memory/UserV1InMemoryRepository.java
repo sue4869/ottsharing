@@ -1,4 +1,4 @@
-package kr.flab.ottsharing.user.infrastructure.config.repository.memory;
+package kr.flab.ottsharing.user.infrastructure.repository.memory;
 
 import kr.flab.ottsharing.user.domain.UserV1;
 

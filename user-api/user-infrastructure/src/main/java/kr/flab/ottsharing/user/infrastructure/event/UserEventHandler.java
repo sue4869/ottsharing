@@ -1,4 +1,4 @@
-package kr.flab.ottsharing.user.infrastructure.config.event;
+package kr.flab.ottsharing.user.infrastructure.event;
 
 import kr.flab.ottsharing.user.application.processor.EmailTokenProcessor;
 import kr.flab.ottsharing.user.domain.event.UserRegistered;

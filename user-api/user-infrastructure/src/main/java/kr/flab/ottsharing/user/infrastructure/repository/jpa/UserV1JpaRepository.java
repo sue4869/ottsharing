@@ -1,4 +1,4 @@
-package kr.flab.ottsharing.user.infrastructure.config.repository.jpa;
+package kr.flab.ottsharing.user.infrastructure.repository.jpa;
 
 import kr.flab.ottsharing.user.domain.UserV1;
 import org.springframework.data.jpa.repository.JpaRepository;
