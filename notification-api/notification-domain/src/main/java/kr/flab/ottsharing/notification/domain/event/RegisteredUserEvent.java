@@ -1,16 +1,16 @@
 package kr.flab.ottsharing.notification.domain.event;
 
 import kr.flab.common.ottsharing.domain.DomainEvent;
+
 import java.time.Instant;
 
-public class NotificationRegistered extends DomainEvent {
+public class RegisteredUserEvent extends DomainEvent {
     private final Long id;
     private final String email;
     private final String emailCheckToken;
     private final Instant expiredDate;
 
-
-    public NotificationRegistered(Long id, String email, String emailCheckToken, Instant expiredDate) {
+    public RegisteredUserEvent(Long id, String email, String emailCheckToken, Instant expiredDate) {
         this.id = id;
         this.email = email;
         this.emailCheckToken = emailCheckToken;
@@ -29,9 +29,9 @@ public class NotificationRegistered extends DomainEvent {
         return emailCheckToken;
     }
 
-    public Instant getExpiredDateDate() {
+    public Instant getExpiredDate() {
         return expiredDate;
     }
-
 }
+
 
