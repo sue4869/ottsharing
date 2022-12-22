@@ -9,6 +9,7 @@ import org.springframework.transaction.event.TransactionalEventListener;
 @Component
 public class NotificationEventHandler {
 
+
     @EventListener
     public void handle(RegisteredUserEvent event) {
     }

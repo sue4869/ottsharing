@@ -2,6 +2,8 @@ package kr.flab.ottsharing.user.domain;
 
 import kr.flab.common.ottsharing.domain.AggregateRoot;
 import kr.flab.ottsharing.user.domain.event.EmailTokenGenerated;
+import kr.flab.ottsharing.user.domain.exception.AlreadyValidEmailException;
+import kr.flab.ottsharing.user.domain.exception.EmailTokenException;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;

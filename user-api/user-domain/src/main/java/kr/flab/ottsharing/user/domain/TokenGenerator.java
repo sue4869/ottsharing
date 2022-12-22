@@ -4,5 +4,3 @@ public interface TokenGenerator {
 
     public String generate();
 }
-
-
