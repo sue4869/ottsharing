@@ -17,7 +17,7 @@ public class UserDomainEventTranslator {
         this.eventPublisher = eventPublisher;
     }
 
-    @Async
+    @Async("asyncTask")
     @TransactionalEventListener
     public void handle(EmailTokenGenerated event) {
        eventPublisher.publish(
