@@ -1,5 +1,6 @@
 package kr.flab.ottsharing.user.domain;
 
+import kr.flab.ottsharing.user.domain.exception.AlreadyValidEmailException;
 import kr.flab.ottsharing.user.domain.exception.InvalidEmailException;
 
 import javax.persistence.Embeddable;
@@ -29,6 +30,11 @@ public class Email {
     }
 
     public void verify() {
+
+        if(this.verified) {
+            throw new AlreadyValidEmailException();
+        }
+
         this.verified = true;
     }
 
