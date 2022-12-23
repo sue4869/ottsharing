@@ -45,10 +45,6 @@ public class Email {
     public String getEmail() {
         return email;
     }
-
-    public boolean isVerified() {
-        return verified;
-    }
 }
 
 
