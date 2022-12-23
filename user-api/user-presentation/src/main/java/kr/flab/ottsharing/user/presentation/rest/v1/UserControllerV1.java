@@ -1,11 +1,11 @@
 package kr.flab.ottsharing.user.presentation.rest.v1;
 
+import kr.flab.common.ottsharing.response.CommonApiResponse;
 import kr.flab.ottsharing.user.application.processor.UserCreateProcessor;
+import kr.flab.ottsharing.user.application.processor.response.EmailDTO;
 import kr.flab.ottsharing.user.presentation.rest.v1.request.UserCreateRequest;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import kr.flab.ottsharing.user.presentation.rest.v1.response.UserRegisterResponse;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/users/v1")
@@ -18,8 +18,9 @@ public class UserControllerV1 {
     }
 
     @PostMapping
-    public void createUser(@RequestBody UserCreateRequest request) {
-          userCreateProcessor.register(request.toCommand());
+    public CommonApiResponse<UserRegisterResponse> createUser(@RequestBody UserCreateRequest request) {
+        EmailDTO email = userCreateProcessor.execute(request.toCommand());
+        return CommonApiResponse.success(new UserRegisterResponse(email));
     }
 }
 

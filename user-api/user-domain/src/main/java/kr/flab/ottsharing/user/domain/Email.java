@@ -1,8 +1,7 @@
 package kr.flab.ottsharing.user.domain;
 
-import kr.flab.ottsharing.user.domain.exception.DuplicateEmailException;
+import kr.flab.ottsharing.user.domain.exception.AlreadyValidEmailException;
 import kr.flab.ottsharing.user.domain.exception.InvalidEmailException;
-import kr.flab.ottsharing.user.domain.repository.UserV1Repository;
 
 import javax.persistence.Embeddable;
 import javax.persistence.Transient;
@@ -12,6 +11,7 @@ import java.util.regex.Pattern;
 public class Email {
 
     private String email;
+    private boolean verified;
     @Transient
     private final Pattern VALID_EMAIL_PATTERN = Pattern.compile("^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$");
 
@@ -26,6 +26,16 @@ public class Email {
         }
 
         this.email = email;
+        this.verified = false;
+    }
+
+    public void verify() {
+
+        if(this.verified) {
+            throw new AlreadyValidEmailException();
+        }
+
+        this.verified = true;
     }
 
     private boolean isValidEmail(String email) {

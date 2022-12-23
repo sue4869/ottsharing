@@ -2,6 +2,7 @@ package kr.flab.ottsharing.user.presentation.rest.v1.exception;
 
 import kr.flab.common.ottsharing.response.CommonApiResponse;
 import kr.flab.ottsharing.user.domain.exception.DuplicateEmailException;
+import kr.flab.ottsharing.user.domain.exception.EmailTokenException;
 import kr.flab.ottsharing.user.domain.exception.InvalidEmailException;
 import kr.flab.ottsharing.user.domain.exception.WeakPasswordException;
 import org.springframework.core.Ordered;
@@ -25,8 +26,13 @@ public class UserExceptionHandler {
     }
 
     @ExceptionHandler(WeakPasswordException.class)
-    public CommonApiResponse WeakPasswordExceptionHandler(WeakPasswordException exception) {
+    public CommonApiResponse<Object> WeakPasswordExceptionHandler(WeakPasswordException exception) {
 
+        return CommonApiResponse.fail(exception.getErrorCode().name(),exception.getMessage());
+    }
+
+    @ExceptionHandler(EmailTokenException.class)
+    public CommonApiResponse<Object> EmailTokenExceptionHandler(EmailTokenException exception) {
         return CommonApiResponse.fail(exception.getErrorCode().name(),exception.getMessage());
     }
 }

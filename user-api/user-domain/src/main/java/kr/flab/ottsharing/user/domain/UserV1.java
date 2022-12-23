@@ -1,5 +1,7 @@
 package kr.flab.ottsharing.user.domain;
 
+import kr.flab.common.ottsharing.domain.AggregateRoot;
+import kr.flab.ottsharing.user.domain.event.UserEmailVerified;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -7,7 +9,7 @@ import javax.persistence.*;
 import java.time.Instant;
 
 @Entity
-public class UserV1 {
+public class UserV1 extends AggregateRoot {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,13 +31,11 @@ public class UserV1 {
         return password;
     }
 
-
     protected UserV1() {
 
     }
 
     public UserV1(Long id, String email, String password, Instant createdAt, Instant updatedAt) {
-
         if(id == null) {
             this.id = 0L;
         } else {
@@ -43,6 +43,17 @@ public class UserV1 {
         }
         this.password = new Password(password);
         this.email = new Email(email);
+    }
+
+    private void verifyEmail() {
+
+        this.email.verify();
+        raise(
+                new UserEmailVerified(
+                        this.id,
+                        this.email.getEmail()
+                )
+        );
     }
 
     public Long getId() {

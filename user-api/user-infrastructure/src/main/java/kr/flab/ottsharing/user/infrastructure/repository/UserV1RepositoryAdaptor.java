@@ -1,8 +1,8 @@
-package kr.flab.ottsharing.user.infrastructure.config.repository;
+package kr.flab.ottsharing.user.infrastructure.repository;
 
 import kr.flab.ottsharing.user.domain.UserV1;
 import kr.flab.ottsharing.user.domain.repository.UserV1Repository;
-import kr.flab.ottsharing.user.infrastructure.config.repository.jpa.UserV1JpaRepository;
+import kr.flab.ottsharing.user.infrastructure.repository.jpa.UserV1JpaRepository;
 
 public class UserV1RepositoryAdaptor implements UserV1Repository {
 
@@ -11,7 +11,6 @@ public class UserV1RepositoryAdaptor implements UserV1Repository {
     public UserV1RepositoryAdaptor(UserV1JpaRepository userV1JpaRepository) {
         this.userV1JpaRepository = userV1JpaRepository;
     }
-
 
     @Override
     public UserV1 save(UserV1 user) {
@@ -23,4 +22,5 @@ public class UserV1RepositoryAdaptor implements UserV1Repository {
         return userV1JpaRepository.existsByEmailEmail(email);
     }
 }
+
 

@@ -1,4 +1,4 @@
-package kr.flab.ottsharing.user.infrastructure.config.repository.memory;
+package kr.flab.ottsharing.user.infrastructure.repository.memory;
 
 import kr.flab.ottsharing.user.domain.UserV1;
 
@@ -14,7 +14,6 @@ public class UserV1InMemoryRepository {
         return memory.put(1L, user);
     }
 
-    //1108
     public boolean existsByEmail(String email) {
         if(Optional.ofNullable(memory.get(email)) == null) return false;
         return true;
