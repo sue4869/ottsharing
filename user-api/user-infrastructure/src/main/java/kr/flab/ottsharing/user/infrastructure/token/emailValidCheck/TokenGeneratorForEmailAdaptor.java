@@ -6,10 +6,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class TokenGeneratorForEmailAdaptor implements TokenGenerator {
 
-    private final MakeUUIDString makeUUIDString;
+    private final UUIDStringGenerator makeUUIDString;
 
-    public TokenGeneratorForEmailAdaptor(MakeUUIDString makeUUIDString) {
-        this.makeUUIDString = makeUUIDString;
+    public TokenGeneratorForEmailAdaptor(UUIDStringGenerator uuidStringGenerator) {
+        this.makeUUIDString = uuidStringGenerator;
     }
 
     @Override
