@@ -8,12 +8,12 @@ import java.util.concurrent.ThreadPoolExecutor;
 
 public class CustomRejectedExceptionHandler implements RejectedExecutionHandler {
 
-    private static Logger logger = LoggerFactory.getLogger(CustomRejectedExceptionHandler.class);
+    private static final Logger logger = LoggerFactory.getLogger(CustomRejectedExceptionHandler.class);
 
     @Override
     public void rejectedExecution(Runnable r, ThreadPoolExecutor executor) {
         logger.error("==============>>>>>>>>>>>> RejectedExecution ERROR");
-        logger.error("CompletedTaskCount() :: {}", executor);
+        logger.error("RejectedException 발생 :: {}", executor);
         logger.error("==============>>>>>>>>>>>> RejectedExecution ERROR END");
     }
 }
