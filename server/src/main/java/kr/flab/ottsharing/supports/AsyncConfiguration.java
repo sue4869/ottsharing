@@ -30,7 +30,7 @@ public class AsyncConfiguration implements AsyncConfigurer {
 
     private static final Logger log = LoggerFactory.getLogger(AsyncConfiguration.class);
 
-    private static int TASK_QUEUE_CAPACITY = 50;
+    private static int TASK_QUEUE_CAPACITY = 100;
     private static int KEEP_ALIVE_SECOND = 60;
     private static String THREAD_NAME_PREFIX = "asyncTask-";
 
@@ -46,6 +46,7 @@ public class AsyncConfiguration implements AsyncConfigurer {
         taskExecutor.setQueueCapacity(TASK_QUEUE_CAPACITY);
         taskExecutor.setKeepAliveSeconds(KEEP_ALIVE_SECOND);
         taskExecutor.setThreadNamePrefix(THREAD_NAME_PREFIX);
+        taskExecutor.setRejectedExecutionHandler(new CustomRejectedExceptionHandler());
 
         taskExecutor.initialize();
         return taskExecutor;
