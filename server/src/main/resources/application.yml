@@ -4,8 +4,8 @@ spring:
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
     url: jdbc:mariadb://localhost:3308/ottsharing?characterEncoding=UTF-8&serverTimezone=UTC
-    username: root
-    password: 4869
+    username: ${USERNAME}
+    password: ${PASSWORD}
   jpa:
     hibernate:
       ddl-auto: none
@@ -17,6 +17,22 @@ spring:
     hiddenmethod:
       filter:
         enabled: true
+  mail:
+    host: smtp.gmail.com
+    username: ${EMAIL}
+    password: ${EMAIL_PASSWORD}
+    port: 587
+    properties:
+      mail.smtp:
+        auth: true
+        timeout: 5000
+        starttls:
+          enable: true
 
 ottsharing:
   serviceFee: 5000
+app:
+  mail:
+    host: http://localhost:8080
+mybatis:
+  mapper-locations: mapper/*xml

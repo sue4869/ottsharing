@@ -12,6 +12,8 @@ dependencies {
     implementation project(path: ':notification-api:notification-domain', configuration: 'default')
 
     implementation 'org.springframework:spring-tx:5.3.13'
+    implementation "org.springframework.boot:spring-boot-starter-thymeleaf"
+    implementation "org.springframework.boot:spring-boot-starter-mail"
 }
 
 

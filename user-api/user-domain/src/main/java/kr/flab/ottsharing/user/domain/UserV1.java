@@ -7,6 +7,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.Instant;
+import java.util.Objects;
 
 @Entity
 public class UserV1 extends AggregateRoot {
@@ -14,6 +15,7 @@ public class UserV1 extends AggregateRoot {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String userName;
     @Embedded
     private Email email;
     @Embedded
@@ -23,24 +25,13 @@ public class UserV1 extends AggregateRoot {
     @UpdateTimestamp
     private Instant updatedAt;
 
-    public Email getEmail() {
-        return email;
-    }
-
-    public Password getPassword() {
-        return password;
-    }
-
     protected UserV1() {
 
     }
 
-    public UserV1(Long id, String email, String password, Instant createdAt, Instant updatedAt) {
-        if(id == null) {
-            this.id = 0L;
-        } else {
-            this.id = id;
-        }
+    public UserV1(Long id,String userName, String email, String password, Instant createdAt, Instant updatedAt) {
+        this.id = Objects.requireNonNullElse(id, 0L);
+        this.userName = userName;
         this.password = new Password(password);
         this.email = new Email(email);
     }
@@ -58,6 +49,18 @@ public class UserV1 extends AggregateRoot {
 
     public Long getId() {
         return id;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public Email getEmail() {
+        return email;
+    }
+
+    public Password getPassword() {
+        return password;
     }
 
     public Instant getCreatedAt() {

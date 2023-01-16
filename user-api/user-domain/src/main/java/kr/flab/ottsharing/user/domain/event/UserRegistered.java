@@ -6,7 +6,6 @@ public class UserRegistered extends DomainEvent {
     private final Long id;
     private final String email;
 
-
     public UserRegistered(Long id, String email) {
         this.id = id;
         this.email = email;
