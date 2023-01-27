@@ -29,10 +29,10 @@ Java와 Spring Boot를 이용해 REST API 서버를 만들어보는걸 목표로
   * 비동기적용
 
 ## :pushpin: 문제 해결 및 기술 적용 이유에 대한 블로그 글 - 중요도 순 정렬
-1. 🌟(회원가입이벤트와 토큰 생성 이벤트 1(설계 이유,@Transactional)[https://velog.io/@sweet_sumin/%ED%9A%8C%EC%9B%90%EA%B0%80%EC%9E%85%EC%9D%B4%EB%B2%A4%ED%8A%B8%EC%99%80-%ED%86%A0%ED%81%B0-%EC%83%9D%EC%84%B1-%EC%9D%B4%EB%B2%A4%ED%8A%B81-%EC%84%A4%EA%B3%84%EC%9D%B4%EC%9C%A0-Transactional]
-2. 🌟(회원가입이벤트와 토큰 생성 이벤트 2 (@Async))[https://velog.io/@sweet_sumin/%ED%9A%8C%EC%9B%90%EA%B0%80%EC%9E%85%EC%9D%B4%EB%B2%A4%ED%8A%B8%EC%99%80-%ED%86%A0%ED%81%B0-%EC%83%9D%EC%84%B1-%EC%9D%B4%EB%B2%A4%ED%8A%B8-2-Async]
-3. (회원가입(1) - 예외처리 도입) [https://velog.io/@sweet_sumin/%ED%9A%8C%EC%9B%90%EA%B0%80%EC%9E%851%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC%EB%8F%84%EC%9E%85]
-4. (회원가입(2) - JPA 적용(MariaDB), 회원가입 로직 흐름 개선)[https://velog.io/@sweet_sumin/%ED%9A%8C%EC%9B%90%EA%B0%80%EC%9E%852-JPA-%EC%A0%81%EC%9A%A9-%ED%9A%8C%EC%9B%90%EA%B0%80%EC%9E%85-%EB%A1%9C%EC%A7%81-%ED%9D%90%EB%A6%84-%EA%B0%9C%EC%84%A0]
+1. 🌟[회원가입이벤트와 토큰 생성 이벤트 1(설계 이유,@Transactional](https://velog.io/@sweet_sumin/%ED%9A%8C%EC%9B%90%EA%B0%80%EC%9E%85%EC%9D%B4%EB%B2%A4%ED%8A%B8%EC%99%80-%ED%86%A0%ED%81%B0-%EC%83%9D%EC%84%B1-%EC%9D%B4%EB%B2%A4%ED%8A%B81-%EC%84%A4%EA%B3%84%EC%9D%B4%EC%9C%A0-Transactional)
+2. 🌟[회원가입이벤트와 토큰 생성 이벤트 2 (@Async)](https://velog.io/@sweet_sumin/%ED%9A%8C%EC%9B%90%EA%B0%80%EC%9E%85%EC%9D%B4%EB%B2%A4%ED%8A%B8%EC%99%80-%ED%86%A0%ED%81%B0-%EC%83%9D%EC%84%B1-%EC%9D%B4%EB%B2%A4%ED%8A%B8-2-Async)
+3. [회원가입(1) - 예외처리 도입] (https://velog.io/@sweet_sumin/%ED%9A%8C%EC%9B%90%EA%B0%80%EC%9E%851%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC%EB%8F%84%EC%9E%85)
+4. [회원가입(2) - JPA 적용(MariaDB), 회원가입 로직 흐름 개선](https://velog.io/@sweet_sumin/%ED%9A%8C%EC%9B%90%EA%B0%80%EC%9E%852-JPA-%EC%A0%81%EC%9A%A9-%ED%9A%8C%EC%9B%90%EA%B0%80%EC%9E%85-%EB%A1%9C%EC%A7%81-%ED%9D%90%EB%A6%84-%EA%B0%9C%EC%84%A0)
 ## :pushpin: 프로젝트 구조도
 ![image](https://user-images.githubusercontent.com/33937365/183288666-95bead19-899e-41b1-9a50-36794c56fc92.png)
 
