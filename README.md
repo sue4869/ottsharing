@@ -25,7 +25,7 @@ Java와 Spring Boot를 이용해 REST API 서버를 만들어보는걸 목표로
 
 ## 🐣: ERD 
 기존 프로젝트 버전으로 추후 개선된 버전으로 업로드 예정
-![](https://user-images.githubusercontent.com/68679529/215021400-7a6db9f6-3bf1-416f-88ba-9415c73cef1a.png)
+![image](https://user-images.githubusercontent.com/68679529/215021612-8ebaad96-5842-4af9-bde7-8c9ebd92599e.png)
 
 
 ## 🖍️ 현재까지 개선된 사항
