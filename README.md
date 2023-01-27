@@ -34,7 +34,7 @@ Java와 Spring Boot를 이용해 REST API 서버를 만들어보는걸 목표로
 * [회원가입(1) - 예외처리 도입](https://velog.io/@sweet_sumin/%ED%9A%8C%EC%9B%90%EA%B0%80%EC%9E%851%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC%EB%8F%84%EC%9E%85)
 * [회원가입(2) - JPA 적용(MariaDB), 회원가입 로직 흐름 개선](https://velog.io/@sweet_sumin/%ED%9A%8C%EC%9B%90%EA%B0%80%EC%9E%852-JPA-%EC%A0%81%EC%9A%A9-%ED%9A%8C%EC%9B%90%EA%B0%80%EC%9E%85-%EB%A1%9C%EC%A7%81-%ED%9D%90%EB%A6%84-%EA%B0%9C%EC%84%A0)
 
-블로그 주소 : https://velog.io/@sweet_sumin
+블로그 주소 : [https://velog.io/@sweet_sumin](https://velog.io/@sweet_sumin/series/DDD-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8)
 
 ## :pushpin: 프로젝트 구조도
 ![image](https://user-images.githubusercontent.com/33937365/183288666-95bead19-899e-41b1-9a50-36794c56fc92.png)
