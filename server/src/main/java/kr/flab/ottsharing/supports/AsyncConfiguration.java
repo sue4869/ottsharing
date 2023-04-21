@@ -30,9 +30,9 @@ public class AsyncConfiguration implements AsyncConfigurer {
 
     private static final Logger log = LoggerFactory.getLogger(AsyncConfiguration.class);
 
-    private static int TASK_QUEUE_CAPACITY = 100;
-    private static int KEEP_ALIVE_SECOND = 60;
-    private static String THREAD_NAME_PREFIX = "asyncTask-";
+    private static final int TASK_QUEUE_CAPACITY = 100;
+    private static final int KEEP_ALIVE_SECOND = 60;
+    private static final String THREAD_NAME_PREFIX = "asyncTask-";
 
     @Bean(name = "asyncTask")
     @Override
